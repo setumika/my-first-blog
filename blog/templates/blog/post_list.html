@@ -1,22 +1,15 @@
 <html>
-    <head>
-        <title>Django blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Blog</a></h1>
-        </div>
+<body>
+    <div>
+        <h1><a href="/">Django Blog</a></h1>
+    </div>
 
+    {% for post in posts %}
         <div>
-            <p>公開日：2020/11/30, 9:15</p>
-            <h2><a href="">1番目の投稿</a></h2>
-            <p>こんにちは！よろしくお願いします！</p>
+            <p>published: {{ post.published_date }}</p>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-
-        <div>
-            <p>公開日：2014/11/30, 9:15</p>
-            <h2><a href="">2番目の投稿</a></h2>
-            <p>こんにちは！よろしくお願いします！</p>
-        </div>
-    </body>
+    {% endfor %}
+</body>
 </html>
